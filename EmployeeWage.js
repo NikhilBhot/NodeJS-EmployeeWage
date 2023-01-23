@@ -7,8 +7,8 @@
 //UC-03-Refactored code to write function for daily working Hours
 
 // const IS_ABSENT = 0
- const IS_PART_TIME = 1;
- const IS_FULL_TIME = 2;
+const IS_PART_TIME = 1;
+const IS_FULL_TIME = 2;
 const IS_PART_TIME_HOURS = 4;
 const IS_FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
@@ -16,9 +16,7 @@ const WAGE_PER_HOUR = 20;
 
 function getWorkingHour(empCheck) 
 {
-    
-        
-        switch (empCheck) {
+    switch (empCheck) {
             case IS_PART_TIME:
                 //console.log("Part Time Employee");
                 return IS_PART_TIME_HOURS;
@@ -32,8 +30,15 @@ function getWorkingHour(empCheck)
         }
     
 }
+
+const NUM_OF_WORKING_DAYS=28;
 let empHrs=0;
-let empCheck = Math.floor(Math.random() * 10) % 2;
-empHrs = getWorkingHour(empCheck);
+
+
+for(let day=0 ; day <NUM_OF_WORKING_DAYS;day++)
+{
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs+=getWorkingHour(empCheck);
+}
 let empWage = empHrs * WAGE_PER_HOUR;
 console.log("Employee Wage:" + empWage);
